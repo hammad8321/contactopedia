@@ -4,7 +4,7 @@ const FavouriteContacts = () => {
   return (
     <div>
         <div>
-        <button className='btn btn-secondary form-control'>Favourite Contact contact</button>
+        <button className='btn btn-secondary form-control'>Favourite Contacts</button>
     </div>
     </div>
   )

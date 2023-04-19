@@ -11,7 +11,7 @@ export class ContactIndex extends Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header />
         <div className="container" style={{ minHeight: "85vh" }}>
           <div className="row py-3">
             <div className="col-4 offset-2">

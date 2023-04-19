@@ -9,7 +9,7 @@ function Footer() {
         borderTop:"1px solid #555",
         textAlign:"center"
     }}
-    >Happy Coodeinf @ Hammad</div>
+    >Happy Cooding Copyright © 2023 Hammad Companies. All Rights Reserved.</div>
   )
 }
 
