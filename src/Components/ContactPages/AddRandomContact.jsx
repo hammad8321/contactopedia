@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
 const AddRandomContact = () => {
   return (
-    <div><div>
-    <button className='btn btn-secondary form-control'>General contact</button>
-</div>Add Random Contact</div>
-  )
-}
+    <div>
+      <div>
+        <button className="btn btn-danger form-control">
+          Add Random Contact
+        </button>
+      </div>
+    </div>
+  );
+};
 
-export default AddRandomContact
+export default AddRandomContact;
