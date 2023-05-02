@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Contact = () => {
+const Contact = (props) => {
   return (
     <div>
         <div>
-        <button className='btn btn-secondary form-control'> Contact</button>
+        <button className='btn btn-secondary form-control'> {props.contact.name}</button>
     </div>
     </div>
   )
