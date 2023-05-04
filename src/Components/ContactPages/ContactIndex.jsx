@@ -8,6 +8,34 @@ import GeneralContacts from "./GeneralContacts";
 import Footer from "../../Layout/Footer";
 
 export class ContactIndex extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      constactList: [
+        {
+          id: 1,
+          name: "NAME A",
+          phone: "0123-333",
+          email: "namea@mail.com",
+          isFaourate: false,
+        },
+        {
+          id: 2,
+          name: "NAME B",
+          phone: "0222-333",
+          email: "nameb@mail.com",
+          isFaourate: false,
+        },
+        {
+          id: 1,
+          name: "NAME C",
+          phone: "03332-333",
+          email: "namec@mail.com",
+          isFaourate: true,
+        },
+      ],
+    };
+  }
   render() {
     return (
       <div>
@@ -26,11 +54,11 @@ export class ContactIndex extends Component {
             </div>
 
             <div className="row py-2">
-              <FavouriteContacts />
+              <FavouriteContacts contacts={this.state.constactList.filter((u)=>u.isFaourate===true)} />
             </div>
 
             <div className="row py-2">
-              <GeneralContacts />
+              <GeneralContacts contacts={this.state.constactList.filter((a)=>a.isFaourate===false)}/>
             </div>
           </div>
         </div>
