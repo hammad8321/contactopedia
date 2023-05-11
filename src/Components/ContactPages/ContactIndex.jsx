@@ -50,15 +50,29 @@ export class ContactIndex extends Component {
             </div>
 
             <div className="row py-2">
-              <AddContact />
+              <div className="col-8 offset-2 row">
+                <AddContact />
+              </div>
             </div>
 
             <div className="row py-2">
-              <FavouriteContacts contacts={this.state.constactList.filter((u)=>u.isFaourate===true)} />
+              <div className="col-8 offset-2 row">
+                <FavouriteContacts
+                  contacts={this.state.constactList.filter(
+                    (u) => u.isFaourate === true
+                  )}
+                />
+              </div>
             </div>
 
             <div className="row py-2">
-              <GeneralContacts contacts={this.state.constactList.filter((a)=>a.isFaourate===false)}/>
+              <div className="col-8 offset-2 row">
+                <GeneralContacts
+                  contacts={this.state.constactList.filter(
+                    (a) => a.isFaourate === false
+                  )}
+                />
+              </div>
             </div>
           </div>
         </div>
