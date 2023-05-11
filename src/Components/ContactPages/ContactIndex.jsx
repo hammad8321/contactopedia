@@ -36,6 +36,13 @@ export class ContactIndex extends Component {
       ],
     };
   }
+
+  handleAddContact=(newContact)=>{
+alert("ha");
+
+  }
+
+
   render() {
     return (
       <div>
@@ -51,7 +58,7 @@ export class ContactIndex extends Component {
 
             <div className="row py-2">
               <div className="col-8 offset-2 row">
-                <AddContact />
+                <AddContact  handleAddContact={this.handleAddContact}/>
               </div>
             </div>
 
