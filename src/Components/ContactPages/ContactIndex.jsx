@@ -39,7 +39,17 @@ export class ContactIndex extends Component {
 
   handleAddContact=(newContact)=>{
 
-    newContact= 
+    const newFinalContct ={...newContact, id:this.state.constactList[this.state.constactList.length-1].id+1,
+      isFaourate:false,
+    }
+    this.setState((prevState)=>{
+      return{
+        constactList : prevState.constactList.concat([newFinalContct]),
+      }
+
+
+    })
+    
 alert("help");
 
   }
