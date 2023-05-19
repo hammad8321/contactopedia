@@ -38,7 +38,9 @@ export class ContactIndex extends Component {
   }
 
   handleAddContact=(newContact)=>{
-alert("ha");
+
+    newContact= 
+alert("help");
 
   }
 

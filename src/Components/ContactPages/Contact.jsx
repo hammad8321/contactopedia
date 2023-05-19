@@ -27,8 +27,8 @@ const Contact = (props) => {
               props.contact.isFaourate ? "btn-warning" : "btn-outline-warning"
             }`}
           >
-            {" "}
-            <i class="bi bi-star" style={{ fontSize: "1rem" }}></i>{" "}
+           
+            <i class="bi bi-star" style={{ fontSize: "1rem" }}></i>
           </button>
         </div>
       </div>
