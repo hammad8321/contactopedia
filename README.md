@@ -76,7 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### `npm run build` Burgain git
 
-This section has moved here: [https://github.com/bhrugen](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://github.com/bhrugen](https://github.com/bhrugen)
 
 
 <-----------------------------To Pull---------------------------------->

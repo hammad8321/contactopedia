@@ -11,7 +11,11 @@ const FavouriteContacts = (props) => {
 
       <div className="p-2">
         {props.contacts.map((contact, index) => (
-          <Contact contact={contact} key={index}></Contact>
+          <Contact
+            contact={contact}
+            key={index}
+            favoriteClick={props.favoriteClick}
+          ></Contact>
         ))}
       </div>
     </div>
