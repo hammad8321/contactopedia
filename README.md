@@ -74,6 +74,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
+### `npm run build` Burgain git
+
+This section has moved here: [https://github.com/bhrugen](https://github.com/bhrugen)
+
+
 <-----------------------------To Pull---------------------------------->
 
  git pull
@@ -86,3 +91,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ###   git checkout master
+### Fix code 
+
+npm audit fix --force

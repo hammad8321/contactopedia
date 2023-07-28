@@ -3,14 +3,21 @@ import Contact from "./Contact";
 
 const FavouriteContacts = (props) => {
   return (
-    <div>
-      {/* <div>
-        <button className='btn btn-secondary form-control'>Favourite Contacts</button>
-        
-    </div> */}
-      {props.contacts.map((contact, index) => (
-        <Contact contact={contact} key={index}></Contact>
-      ))}
+    <div
+      className="col-12 py-2"
+      style={{ border: "10px", backgroundColor: "#323637" }}
+    >
+      <div className="text-center text-white-50"> Favorites </div>
+
+      <div className="p-2">
+        {props.contacts.map((contact, index) => (
+          <Contact
+            contact={contact}
+            key={index}
+            favoriteClick={props.favoriteClick}
+          ></Contact>
+        ))}
+      </div>
     </div>
   );
 };
