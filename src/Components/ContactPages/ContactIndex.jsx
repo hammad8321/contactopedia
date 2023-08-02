@@ -68,19 +68,60 @@ class ContactIndex extends React.Component {
     }
   };
 
-  handleToggleFavorite=(contact)=>{
-   this.setState((prevState)=> {
-    return{
-      contactList: prevState.contactList.map((obj)=>{
-        if(obj.id==contact.id){
-          return {...obj, isFavorite : !obj.isFavorite}
-        }
-        return obj;
-      })
-    }
-   })
+  handleToggleFavorite = (contact) => {
+    this.setState((prevState) => {
+      return {
+        contactList: prevState.contactList.map((obj) => {
+          if (obj.id == contact.id) {
+            return { ...obj, isFavorite: !obj.isFavorite };
+          }
+          return obj;
+        }),
+      };
+    });
+  };
 
-  }
+  handleDeleteContact = (contactId) => {
+    this.setState((prevState) => {
+      return {
+        contactList: prevState.contactList.filter((obj) => {
+          return obj.id !== contactId;
+        }),
+      };
+    });
+  };
+
+  handleAddRandomContact = (newContact) => {
+    const newFinalContact = {
+      ...newContact,
+      id: this.state.contactList[this.state.contactList.length - 1].id + 1,
+      isFavorite: false,
+    };
+    this.setState((prevState) => {
+      return {
+        contactList: prevState.contactList.concat([newFinalContact]),
+      };
+    });
+  };
+
+  handleRemoveAllContact = () => {
+    this.setState((prevState) => {
+      return {
+        contactList: [],
+      };
+    });
+  };
+
+  handleUpdateClick = (contact) => {
+    console.log(contact)
+    this.setState((prevState) => {
+      return {
+        selectedContact:contact,
+        isUpdating: true
+
+      }
+    });
+  };
 
   render() {
     return (
@@ -88,16 +129,24 @@ class ContactIndex extends React.Component {
         <Header />
         <div className="container" style={{ minHeight: "85vh" }}>
           <div className="row py-3">
-            <div className="col-4 offset-2">
-              <AddRandomContact />
+            <div className="col-4 offset-2 row">
+              <AddRandomContact
+                handleAddRandomContact={this.handleAddRandomContact}
+              />
             </div>
-            <div className="col-4">
-              <RemoveAllContact />
+            <div className="col-4 row">
+              <RemoveAllContact
+                handleRemoveAllContact={this.handleRemoveAllContact}
+              />
             </div>
 
             <div className="row py-2">
               <div className="col-8 offset-2 row">
-                <AddContact handleAddContact={this.handleAddContact} />
+                <AddContact handleAddContact={this.handleAddContact}
+                isUpdating={this.state.isUpdating}
+                selectedContact={this.state.selectedContact}
+                
+                 />
               </div>
             </div>
 
@@ -107,7 +156,9 @@ class ContactIndex extends React.Component {
                   contacts={this.state.contactList.filter(
                     (u) => u.isFavorite == true
                   )}
-                  favoriteClick={ this.handleToggleFavorite}
+                  favoriteClick={this.handleToggleFavorite}
+                  deleteContact={this.handleDeleteContact}
+                  updateClick={this.handleUpdateClick}
                 />
               </div>
             </div>
@@ -118,8 +169,9 @@ class ContactIndex extends React.Component {
                   contacts={this.state.contactList.filter(
                     (a) => a.isFavorite == false
                   )}
-
-                  favoriteClick={ this.handleToggleFavorite}
+                  favoriteClick={this.handleToggleFavorite}
+                  deleteContact={this.handleDeleteContact}
+                  updateClick={this.handleUpdateClick}
                 />
               </div>
             </div>
