@@ -104,6 +104,25 @@ class ContactIndex extends React.Component {
     });
   };
 
+  handleRemoveAllContact = () => {
+    this.setState((prevState) => {
+      return {
+        contactList: [],
+      };
+    });
+  };
+
+  handleUpdateClick = (contact) => {
+    console.log(contact)
+    this.setState((prevState) => {
+      return {
+        selectedContact:contact,
+        isUpdating: true
+
+      }
+    });
+  };
+
   render() {
     return (
       <div>
@@ -116,12 +135,18 @@ class ContactIndex extends React.Component {
               />
             </div>
             <div className="col-4 row">
-              <RemoveAllContact />
+              <RemoveAllContact
+                handleRemoveAllContact={this.handleRemoveAllContact}
+              />
             </div>
 
             <div className="row py-2">
               <div className="col-8 offset-2 row">
-                <AddContact handleAddContact={this.handleAddContact} />
+                <AddContact handleAddContact={this.handleAddContact}
+                isUpdating={this.state.isUpdating}
+                selectedContact={this.state.selectedContact}
+                
+                 />
               </div>
             </div>
 
@@ -133,6 +158,7 @@ class ContactIndex extends React.Component {
                   )}
                   favoriteClick={this.handleToggleFavorite}
                   deleteContact={this.handleDeleteContact}
+                  updateClick={this.handleUpdateClick}
                 />
               </div>
             </div>
@@ -145,6 +171,7 @@ class ContactIndex extends React.Component {
                   )}
                   favoriteClick={this.handleToggleFavorite}
                   deleteContact={this.handleDeleteContact}
+                  updateClick={this.handleUpdateClick}
                 />
               </div>
             </div>
