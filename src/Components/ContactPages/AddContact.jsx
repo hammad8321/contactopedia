@@ -31,6 +31,10 @@ class AddContact extends React.Component {
     }
   };
 
+  handleContact=()=>{
+    this.props.CancelUpdateContact();
+  }
+
   render() {
     return (
       <div className="border col-12 text-white p-2">
@@ -103,6 +107,7 @@ class AddContact extends React.Component {
             <div className="col-12 col-md-4 p-1"
             >{this.props.isUpdating && <button
             className="btn btn-secondary btn-sm form-control"
+           onClick={this.handleContact}
             >Cancel</button>}</div>
           </div>
         </form>
