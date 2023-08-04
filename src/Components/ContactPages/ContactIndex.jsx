@@ -96,9 +96,6 @@ class ContactIndex extends React.Component {
     return { status: "success", msg: "Contact was updated successfully" };
   };
 
-
- 
-
   handleCancelUpdateContact = (contact) => {
     console.log(contact);
     this.setState((prevState) => {
@@ -107,9 +104,8 @@ class ContactIndex extends React.Component {
         isUpdating: false,
       };
     });
-     return { status: "success", msg: "Contact was updated successfully" }; 
+    return { status: "success", msg: "Contact was updated successfully" };
   };
-  
 
   handleToggleFavorite = (contact) => {
     this.setState((prevState) => {
@@ -146,8 +142,6 @@ class ContactIndex extends React.Component {
       };
     });
   };
-
-  
 
   handleRemoveAllContact = () => {
     this.setState((prevState) => {
@@ -202,6 +196,7 @@ class ContactIndex extends React.Component {
                   selectedContact={this.state.selectedContact}
                   CancelUpdateContact={this.handleCancelUpdateContact}
                   handleCancelUpdateContact={this.handleCancelUpdateContact}
+                  handleUpdateContact={this.handleUpdateContact}
                 />
               </div>
             </div>
