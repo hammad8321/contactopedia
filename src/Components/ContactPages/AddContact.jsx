@@ -14,14 +14,24 @@ class AddContact extends React.Component {
     const name = e.target.elements.contactName.value.trim();
     const email = e.target.elements.contactEmail.value.trim();
     const phone = e.target.elements.contactPhone.value.trim();
+    const id = e.target.elements.contactId.value.trim();
+
 
     let response = undefined;
-
-    response = this.props.handleAddContact({
-      name: name,
-      email: email,
-      phone: phone,
-    });
+    if (this.props.isUpdating) {
+      response = this.props.handleUpdateContact({
+        name: name,
+        email: email,
+        phone: phone,
+        id:id
+      });
+    } else {
+      response = this.props.handleAddContact({
+        name: name,
+        email: email,
+        phone: phone,
+      });
+    }
 
     if (response.status == "success") {
       this.setState({ errorMessage: undefined, successMessage: response.msg });
@@ -31,6 +41,10 @@ class AddContact extends React.Component {
     }
   };
 
+  handleContact = () => {
+    this.props.CancelUpdateContact();
+  };
+
   render() {
     return (
       <div className="border col-12 text-white p-2">
@@ -38,6 +52,13 @@ class AddContact extends React.Component {
           onSubmit={this.handleAddContactFormSubmit}
           className="contact-form"
         >
+        <input hidden
+               
+                name="contactId"
+                defaultValue={
+                  this.props.isUpdating ? this.props.selectedContact.id : ""
+                }
+              ></input>
           <div className="row p-2">
             <div className="col-12 text-white-50">
               {this.props.isUpdating ? "Update Contact" : "Add a new contact"}
@@ -100,10 +121,16 @@ class AddContact extends React.Component {
                 {this.props.isUpdating ? "Update" : "Create"}
               </button>
             </div>
-            <div className="col-12 col-md-4 p-1"
-            >{this.props.isUpdating && <button
-            className="btn btn-secondary btn-sm form-control"
-            >Cancel</button>}</div>
+            <div className="col-12 col-md-4 p-1">
+              {this.props.isUpdating && (
+                <button
+                  className="btn btn-secondary btn-sm form-control"
+                  onClick={this.handleContact}
+                >
+                  Cancel
+                </button>
+              )}
+            </div>
           </div>
         </form>
       </div>
